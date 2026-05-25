@@ -3,32 +3,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pm_prova2_m;
-
+import java.util.ArrayList;
 /**
  *
  * @author glbra
  */
 public abstract class Aluguel {
 
-    private String nomeCliente;
+    protected String cliente;
+    protected ArrayList<Veiculo> veiculos;
     private int quantidadeDias;
     private double valorTotal;
     private StatusAluguel status;
 
-    public Aluguel(String nomeCliente, int quantidadeDias, double valorTotal, StatusAluguel status) {
+    public Aluguel(String cliente, int quantidadeDias, double valorTotal, StatusAluguel status) {
 
-        this.nomeCliente = nomeCliente;
+        this.cliente = cliente;
+        this.veiculos = new ArrayList<>();
         this.quantidadeDias = quantidadeDias;
         this.valorTotal = valorTotal;
         this.status = status;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getcliente() {
+        return cliente;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setcliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public int getQuantidadeDias() {
@@ -58,5 +60,23 @@ public abstract class Aluguel {
     public abstract void exibirDetalhes();
 
     public abstract boolean possuiSeguroIncluso();
+    
+    public void adicionarVeiculos(Veiculo veiculo){
+        veiculos.add(veiculo);
+        
+        veiculos.setStatus(StatusVeiculo.ALUGADO);
+    }
+    
+    public void exibirVeiculos(){
+        
+        for (Veiculo v : veiculos){
+            System.out.println(v);
+        }
+    }
+    
+    @Override
+    public String toString(){
+        return "\nCliente: " + cliente;
+    }
     
 }

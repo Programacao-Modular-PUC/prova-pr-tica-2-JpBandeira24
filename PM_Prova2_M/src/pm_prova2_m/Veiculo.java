@@ -75,6 +75,14 @@ public abstract class Veiculo {
         this.status = status;
     }
 
+    
+    @Override
+    public String toString(){
+        return "Placa: " + placa + "\nModelo: " + modelo + "\n Ano: " + anoFabricacao + "Diaria: " + valorDiaria +  "\nKm: " + quilometragem +  "Status: " + status;
+    }
+    
+    
+    
     public abstract void exibirDetalhes();
 
     public abstract boolean possuiSeguroEspecial();
